@@ -33,11 +33,11 @@ https://github.com/lucasdblucas/wh_model.git
 ```
 
 * Then, go to the "src/bashs" folder and run the bash file to execute an experiment. The configuration files are located in the "src/config" folder, and they pass the parameters to run the experiment.
-** WideResnet Experiment:
+WideResnet Experiment:
 ```
 bash execute_wh_21.sh
 ```
-** Scale-Equivariant WideResnet Experiment:
+Scale-Equivariant WideResnet Experiment:
 ```
 bash execute_wh_22.sh
 ```
