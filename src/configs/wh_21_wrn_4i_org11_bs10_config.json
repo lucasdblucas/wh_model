@@ -1,0 +1,455 @@
+{
+    "current_project_info": {
+        "help": "The file names when applicable should be provided with the respective extension.",
+        "about_current_project": {
+            "use": "WideResnet. Without the scale-equivariant. Entry type: 4 images, quadratic orgazition. Batch Size Study. Continuing the former training.",
+            "help": "about the project",
+            "name": "wh_22_wrn_4i_org11"
+        },
+        "command": {
+            "choices": [
+                "train",
+                "inference",
+                "show_images"
+            ],
+            "use": "train",
+            "required": true,
+            "help": "Do the training, inference or show images form dataset only."
+        },
+        "task_config": {
+            "pred_type": {
+                "choices": [
+                    "classification",
+                    "regression"
+                ],
+                "use": "regression",
+                "default": "classification",
+                "help": "Task for the model."
+            },
+            "regression_config": {
+                "targets": {
+                    "use": [
+                        "weight",
+                        "height"
+                    ],
+                    "help": "Variables to be predicted"
+                },
+                "help": "info about the model task."
+            },
+            "classification_config": {
+                "targets": {
+                    "use": null,
+                    "help": "Classes to be predicted"
+                },
+                "help": "info about the model task."
+            },
+            "tags": {
+                "use": [
+                    "wh",
+                    "weight",
+                    "height",
+                    "Wide ResNet",
+                    "four views",
+                    "triangular horizontal organization",
+                    "image organization study"
+                ],
+                "choices": "other_key",
+                "other_key": [
+                    "general_info",
+                    "general_tags",
+                    "use"
+                ],
+                "help": "a list of tags"
+            },
+            "use_checkpoint": {
+                "use": true,
+                "name": "wh_21_wrn_4i_org11_bs10_02.pt",
+                "help": "when save the model after each epoch, in case to retake the train after. The checkpoint will receive the name in the format {model_name}_{year}-{month}-{day}-{hour}-{C}.pt"
+            },
+            "init_from_checkpoint": {
+                "use": false,
+                "path": null,
+                "help": "Retake training from the last checkpoint. The file most have the necessary info to retake training. If the file doesn't exist, a error will be raised."
+            },
+            "testing_config": {
+                "use": false,
+                "num_epochs": {
+                    "use": 3,
+                    "default": 2
+                },
+                "num_elements": {
+                    "use": 80,
+                    "default": 60
+                },
+                "help": "if true, the algorithm will train a little version from the training process."
+            }
+        },
+        "data_config": {
+            "data_file_name": {
+                "use": "silhouettes_4i_org11.csv",
+                "help": "If 'file_type' is csv, 'data_file_name' identifies the file inside the 'data_path/csv'. 'data_path' has a default value.",
+                "required": true
+            },
+            "file_type": {
+                "use": "csv",
+                "choices": [
+                    "csv"
+                ],
+                "default": "csv"
+            },
+            "split_data_type": {
+                "use": "default",
+                "choices": [
+                    "train",
+                    "train/test",
+                    "train/val/test",
+                    "inference",
+                    "image organization study"
+                ],
+                "default": "train/test",
+                "help": "The way the dataset will be splited. Default to 'train/test' if 'command' is 'train'. If command is 'inference' the val of 'split_data_type' should be 'inference'."
+            },
+            "num_workers": {
+                "use": 1,
+                "default": 4,
+                "help": "The number of works to load the Dataset."
+            },
+            "train_size": {
+                "use": "default",
+                "help": "train_size has different sizes for different split_data_types. For 'train' the train_size is default to 1.0. For 'train/test', the train_size is default to 0.8. For 'train/val/test' train_size is default to 0.8, but the val_size is taken from train dataset. For 'inference' train_size' is 'false'."
+            },
+            "val_size": {
+                "use": null,
+                "help": "val_size is only used when 'split_data_type' is 'train/val/test'. In this case val_size has a default value equal to 0.2. In the others cases val_size is 'false'."
+            },
+            "infe_size": {
+                "use": null,
+                "help": "infe_size is only used when 'split_data_types' is 'inference'. In this case infe_size has a default value equal to 0.2 from the whole dataset. In the others cases val_size is 'false'."
+            },
+            "num_folds": {
+                "use": null,
+                "default": 5
+            },
+            "data_batch_size": {
+                "use": 10,
+                "default": 1,
+                "help": "'batch_size' for load dataset. Number of images for load at one time."
+            },
+            "show_images_config": {
+                "use": null,
+                "num_images_to_show": {
+                    "use": null,
+                    "help": "Number of images to show in the grid. This field is only required if 'command' is 'show_image'."
+                }
+            },
+            "transform_config": {
+                "resize": {
+                    "use": [
+                        265,
+                        265
+                    ],
+                    "help": "If 'resize' is a transform to be applied, a list in the form '[weight, height]' should be provided. If not the value should remain 'false'."
+                },
+                "totensor": {
+                    "use": true
+                },
+                "grayscale": {
+                    "use": true,
+                    "help": "If 'grayscale' is a transform to be applied, the value should be 'true'. If not the value should remain 'false'."
+                },
+                "normalize_input": {
+                    "use": true,
+                    "name": "silhouettes_gray_4i_org11",
+                    "help": "If 'normalize' is a transform to be applied, the value should be 'true'. If not the value should remain 'false'. 'name' is na name from normalize witch will be used."
+                },
+                "normalize_output": {
+                    "use": null,
+                    "default": false,
+                    "to_norm": null,
+                    "help": "If 'normalize' is a transform to be applied to the output, the value should be 'true'. If not the value should remain 'null' or 'false'."
+                },
+                "augment": {
+                    "use": false,
+                    "name": "random",
+                    "choices": [
+                        "random"
+                    ],
+                    "augment_size": null,
+                    "random_config": {
+                        "use": false,
+                        "random_vertical_flip": false,
+                        "random_horizontal_flip": false,
+                        "random_rotation": {
+                            "use": false,
+                            "degrees": 95,
+                            "help": "The degrees that should be used. This tis the argument that will be sendo to 'RandomRotation', in other words, the value should be a integer or a sequence (min, max)."
+                        },
+                        "random_crop": {
+                            "use": false,
+                            "size": 500,
+                            "pad_if_needed": false,
+                            "padding_mode": 0,
+                            "help": "The size to random crop - 'int'. 'pad_if_needed' - will pad the image if smaller than the desired size to avoid raising an exception, 'true' or 'null'. 'padding_mode' pads with the last value at the edge of the image, 'string'."
+                        },
+                        "random_gaussian_blur": {
+                            "use": null,
+                            "kernel_size": [
+                                7,
+                                7
+                            ],
+                            "sigma": [
+                                0.5,
+                                5
+                            ]
+                        },
+                        "random_color_jitter": {
+                            "use": false,
+                            "brightness": 0.3,
+                            "contrast": 0,
+                            "saturation": 0,
+                            "hue": 0.2,
+                            "do_separately_too": false,
+                            "help": "'brightness' - 'float' if used or '0' if not used. 'contrast' - 'float' if used or '0' if not used. 'saturation' - 'float' if used or '0' if not used. 'hue' - 'float' if used or '0' if not used. 'do_separately_too' - 'bool', 'true' if used (it will augment data for each transform element separately) or 'false' if not used."
+                        },
+                        "random_affine": {
+                            "use": false,
+                            "degrees": 0,
+                            "translate": [0.3,  0.3],
+                            "scale": [0.8, 1.2],
+                            "shear": 15,
+                            "center": null,
+                            "do_separately_too": false,
+                            "help": "'degrees' - 'int' if used or 'null' if not used. 'translate' - 'tuple('float', 'float')' if used or 'null' if not used, first float for width transform and second float for hight transform. 'scale' - 'tuple('float', float')' if used or 'null' if not used. 'shear' - 'int' if used or 'null' if not used. 'center' - 'tuple('int', 'int') if used or 'null' if not used. 'do_separately_too' - 'bool', 'true' if used (it will augment data for each transform element separately) or 'false' if not used."
+                        },
+                        "random_zoom_out":{
+                            "use": false,
+                            "probability": 0.35
+                        },
+                        "coarse_drop":{
+                            "use": false,
+                            "max_holes": 4,
+                            "max_height": 32,
+                            "max_width": 32,
+                            "probability": 0.45
+                        },
+                        "help": "Do augment to balance the dataset related to the classes. Or do the augment using 'augment_size'. 'augment_size' is the fraction that will be augment from the original data. The elements will chosen randomly."
+                    },
+                    "help": "do data-augmentation or not to. 'name' is the augmentation type."
+                },
+                "help": "Transforms applied to the images before the tasks."
+            },
+            "isic_config": {
+                "use": null,
+                "downsample": {
+                    "use": null,
+                    "help": "Reduce the class with more number of elements to the size of the second bigger class"
+                },
+                "oversample_to_balance": {
+                    "use": null,
+                    "help": "'oversample_to_balance' will apply the 'downsample' to the bigger class until the second-bigger. And oversample the last classes until that size."
+                },
+                "min_number_per_class": {
+                    "use": null,
+                    "min": 50,
+                    "help": "'min' is the minimum number that every class should have. If not the class will be dropped."
+                },
+                "help": "specific configuration for ISIC Dataset"
+            },
+            "leprosy_config": {
+                "use": false,
+                "augmentation": {
+                    "use": false,
+                    "oversample_minority_class": {
+                        "use": false,
+                        "times": "until_balance"
+                    }
+                }
+            },
+            "leprosy_fusion_config": {
+                "use": false,
+                "augmentation": {
+                    "use": false,
+                    "oversample_minority_class": {
+                        "use": false,
+                        "times": "until_balance"
+                    }
+                },
+                "metadata_features": {
+                    "use": false,
+                    "features_list": null,
+                    "drop_null": {
+                        "use": false
+                    }
+                }
+            },
+            "leprosy_isic_config": {
+                "use": false,
+                "oversample_minority_class":{
+                    "use": false,
+                    "times": 25
+                },
+                "help": ""
+            },
+            "silhouettes_gray_config": {},
+            "help": "Configuration regarding dataset."
+        },
+        "train_infe_config": {
+            "model_func": {
+                "choices": "other_key",
+                "other_key": [
+                    "general_info",
+                    "models_names",
+                    "all_models_names",
+                    "use"
+                ],
+                "use": "wh_split_wrn_16_8",
+                "params": null,
+                "help": "the same in 'general_info.model_names'. It is the function responsible for construct the model architecture.  Is 'command' is 'show_image' the field is not required, remaining false in this case."
+            },
+            "init_from_model": {
+                "use": false,
+                "help": "The name of the model with the extension, or path. In cases that a saved model will be used (Inference, transfer learning), the model/file name should be provided."
+            },
+            "save_directory": {
+                "use": "default",
+                "help": "If 'command' is 'train', directory will be default to the name of the model. If the directory does not exist, it will be created. The directory will be placed inside 'save' fold and all the models and infos for the experiment will be saved there."
+            },
+            "best_model_save_name": {
+                "use": "default",
+                "help": "Used When 'command' is 'train'. Name the best model will receive. By default, if not provided, the best model will receive the name in the format {model_name}_{year}-{month}-{day}-{hour}-{B}.pt"
+            },
+            "final_model_save_name": {
+                "use": "default",
+                "help": "Used When 'command' is 'train'. Name the final model will receive. By default, if not provided, the final model will receive the name in the format {model_name}_{year}-{month}-{day}-{hour}-{F}.pt"
+            },
+            "cuda": {
+                "use": true,
+                "default": true,
+                "help": "If 'cuda' is 'true', the training will try to allocate a GPU for processing."
+            },
+            "seed": {
+                "use": 24,
+                "default": 24,
+                "help": "For reproducibility of the experiment, an seed is used."
+            },
+            "machine_config": {
+                "use": null,
+                "help": "Configuration for approuchs that uses comuns parameters for Machine Learn Algorithms"
+            },
+            "deep_config": {
+                "batch_size": {
+                    "use": 120,
+                    "default": 40,
+                    "help": "'batch_size' for load dataset and for load entries for train, test or inference"
+                },
+                "epochs": {
+                    "use": "default",
+                    "default": 50,
+                    "help": "Epochs Number"
+                },
+                "optimizer": {
+                    "use": "default",
+                    "choices": [
+                        "adam",
+                        "sgd"
+                    ],
+                    "default": "adam",
+                    "help": "Optimizer"
+                },
+                "momentum": {
+                    "use": null,
+                    "default": 0.9,
+                    "help": "momentum, only for SGD"
+                },
+                "nesterov": {
+                    "use": null,
+                    "default": false,
+                    "help": "nestorov, only for SGD"
+                },
+                "decay": {
+                    "use": "default",
+                    "default": 0.0001,
+                    "help": "decay"
+                },
+                "lr": {
+                    "use": 0.01,
+                    "default": 0.001,
+                    "help": "If 'command' is 'train' so 'lr' should be provided"
+                },
+                "dropout": {
+                    "use": [
+                        0.3
+                    ],
+                    "help": "'dropout rate' for layers when applicable in the model architecture. A list should be provided when the dropout is wanted, if not, the value should remain 'false'.",
+                    "_comment_": "Verificar se é usado. Verifcar qual seria a possiblidade de usar mais deum droprate."
+                },
+                "test_epochs": {
+                    "use": 1,
+                    "default": 2,
+                    "help": "If 'command' is 'train', 'test_epochs' should be provided. This is th epochs on which the model is tested. Default to 1, witch means that the model will be tested every 1 epoch, and the result stored if it is the best, with the name in 'best_model_file_name' flag."
+                },
+                "scheduler_config": {
+                    "use": "multisteplr",
+                    "choices": [
+                        "multisteplr",
+                        "reducelronplateu"
+                    ],
+                    "lr_gamma": {
+                        "use": 0.45,
+                        "default": 0.2,
+                        "help": "If 'command' is 'train' and 'scheduler' learning rate decrease is wanted the 'lr_gamma' should be provided"
+                    },
+                    "verbose": {
+                        "use": "default",
+                        "default": false,
+                        "help": "print on screen or not"
+                    },
+                    "multisteplr": {
+                        "use": true,
+                        "milestones": {
+                            "use": [
+                                10,
+                                30,
+                                40
+                            ],
+                            "default": [
+                                20,
+                                40
+                            ],
+                            "help": "If 'command' is 'train' so 'lr_steps' should be provided"
+                        }
+                    },
+                    "reducelronplateu": {
+                        "use": null,
+                        "mode": {
+                            "use": null,
+                            "default": "min",
+                            "help": "the 'patient' will verify if the variable is decreasing or augmenting depending on the 'mode'"
+                        },
+                        "patience": {
+                            "use": null,
+                            "default": 3,
+                            "help": "how many 'epochs' the optimizer will wait until decrease the 'lr'"
+                        }
+                    },
+                    "help": "When is chosen to use scheduler for leaning rate reduction, the scheduler config should be provided."
+                },
+                "help": "Configuration for approuchs that uses comuns parameters for Deep Learning Algorithms"
+            }
+        },
+        "results": {
+            "use": {},
+            "plot_config": {
+                "delete_images": {
+                    "use": false,
+                    "default": false,
+                    "help": "If 'true', the result images will be deleted after generate the report pdf."
+                }
+            },
+            "help": "info results"
+        }
+    },
+    "general_info": {
+        "path": "../configs/config_g.json"
+    }
+}

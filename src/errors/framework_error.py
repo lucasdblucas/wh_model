@@ -1,0 +1,3 @@
+
+class FrameworkError(Exception):
+    pass

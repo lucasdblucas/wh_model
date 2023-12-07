@@ -1,0 +1,290 @@
+{
+    "general_info": {
+        "data_path": {
+            "use": ".\\../data",
+            "default": "../data",
+            "help": "Default directory where to find all datasets.",
+            "required": true
+        },
+        "save_model_path": {
+            "use": ".\\../save",
+            "default": "../save",
+            "help": "Default directory to save models info.",
+            "required": true
+        },
+        "models_names": {
+            "all_models_names": {
+                "use": [
+                    "mnist_cnn_28",
+                    "mnist_cnn_56",
+                    "mnist_dss_scalar_28",
+                    "mnist_dss_scalar_56",
+                    "mnist_dss_vector_28",
+                    "mnist_dss_vector_56",
+                    "mnist_kanazawa_28",
+                    "mnist_kanazawa_56",
+                    "mnist_ses_scalar_28",
+                    "mnist_ses_scalar_28p",
+                    "mnist_ses_scalar_56",
+                    "mnist_ses_scalar_56p",
+                    "mnist_ses_vector_28",
+                    "mnist_ses_vector_28p",
+                    "mnist_ses_vector_56",
+                    "mnist_ses_vector_56p",
+                    "mnist_sevf_scalar_28",
+                    "mnist_sevf_scalar_56",
+                    "mnist_sevf_vector_28",
+                    "mnist_sevf_vector_56",
+                    "mnist_ss_28",
+                    "mnist_ss_56",
+                    "mnist_xu_28",
+                    "mnist_xu_56",
+                    "skinreader_models",
+                    "wh_renet_50",
+                    "wh_split_wrn_16_8",
+                    "wh_split_wrn_16_8_ses",
+                    "wh_wrn_16_8",
+                    "wh_wrn_16_8_ses",
+                    "wrn_16_8",
+                    "wrn_16_8_dss",
+                    "wrn_16_8_kanazawa",
+                    "wrn_16_8_ses_a",
+                    "wrn_16_8_ses_b",
+                    "wrn_16_8_ses_c",
+                    "wrn_16_8_ss",
+                    "wrn_16_8_xu"
+                ],
+                "help": "All models architectures available.",
+                "required": true,
+                "default": [
+                    "mnist_cnn_28",
+                    "mnist_cnn_56",
+                    "mnist_dss_scalar_28",
+                    "mnist_dss_scalar_56",
+                    "mnist_dss_vector_28",
+                    "mnist_dss_vector_56",
+                    "mnist_kanazawa_28",
+                    "mnist_kanazawa_56",
+                    "mnist_ses_scalar_28",
+                    "mnist_ses_scalar_28p",
+                    "mnist_ses_scalar_56",
+                    "mnist_ses_scalar_56p",
+                    "mnist_ses_vector_28",
+                    "mnist_ses_vector_28p",
+                    "mnist_ses_vector_56",
+                    "mnist_ses_vector_56p",
+                    "mnist_sevf_scalar_28",
+                    "mnist_sevf_scalar_56",
+                    "mnist_sevf_vector_28",
+                    "mnist_sevf_vector_56",
+                    "mnist_ss_28",
+                    "mnist_ss_56",
+                    "mnist_xu_28",
+                    "mnist_xu_56",
+                    "skinreader_models",
+                    "wh_renet_50",
+                    "wh_split_wrn_16_8",
+                    "wh_split_wrn_16_8_ses",
+                    "wh_wrn_16_8",
+                    "wh_wrn_16_8_ses",
+                    "wrn_16_8",
+                    "wrn_16_8_dss",
+                    "wrn_16_8_kanazawa",
+                    "wrn_16_8_ses_a",
+                    "wrn_16_8_ses_b",
+                    "wrn_16_8_ses_c",
+                    "wrn_16_8_ss",
+                    "wrn_16_8_xu"
+                ]
+            },
+            "skinreader_models": {
+                "use": [
+                    "skinreader_models"
+                ],
+                "help": "Skinreader models architectures available and config per constructor/project functions.",
+                "required": true,
+                "default": [
+                    "skinreader_models"
+                ],
+                "function_default_config": {
+                    "skinreader_resnet50": {
+                        "not_required_config": {
+                            "regression_config": "all",
+                            "data_config": [
+                                "file_type",
+                                "infe_size",
+                                "num_folds",
+                                "num_images_to_show",
+                                "extra_scaling"
+                            ],
+                            "train_infe_config": [
+                                "model_name",
+                                "model_directory",
+                                {
+                                    "machine_config": "all"
+                                }
+                            ],
+                            "general_info": "all"
+                        }
+                    }
+                }
+            },
+            "wh_models": {
+                "use": [
+                    "wh_renet_50",
+                    "wh_split_wrn_16_8",
+                    "wh_split_wrn_16_8_ses",
+                    "wh_wrn_16_8",
+                    "wh_wrn_16_8_ses"
+                ],
+                "help": "Weight and Height Prediction models architectures available.",
+                "required": true,
+                "default": [
+                    "wh_renet_50",
+                    "wh_split_wrn_16_8",
+                    "wh_split_wrn_16_8_ses",
+                    "wh_wrn_16_8",
+                    "wh_wrn_16_8_ses"
+                ]
+            },
+            "help": "Models architectures available."
+        },
+        "mean": {
+            "silhouettes_rgb": [
+                0.2316,
+                0.2316,
+                0.2316
+            ],
+            "silhouettes_gray_4i_org11": [
+                0.2316
+            ],
+            "isic": [
+                0.5,
+                0.5,
+                0.5
+            ],
+            "leprosy": [
+                0.3476,
+                0.2615,
+                0.2363
+            ],
+            "help": "mean for normalize dataset",
+            "silhouettes_gray_1": [
+                0.27106305956840515
+            ],
+            "leprosy_isic": [
+                0.7437213063240051,
+                0.5798516273498535,
+                0.5560113191604614
+            ],
+            "leprosy_only_regions": [
+                0.3280462324619293,
+                0.24922527372837067,
+                0.2263190746307373
+            ],
+            "silhouettes_gray_1i_org02": [
+                0.18208466470241547
+            ],
+            "silhouettes_gray_3i_org06": [
+                0.24545182287693024
+            ],
+            "silhouettes_gray_3i_org07": [
+                0.18417157232761383
+            ],
+            "silhouettes_gray_3i_org08": [
+                0.1843326836824417
+            ],
+            "silhouettes_gray_4i_org10": [
+                0.23158670961856842
+            ]
+        },
+        "std": {
+            "silhouettes_rgb": [
+                0.418,
+                0.418,
+                0.418
+            ],
+            "silhouettes_gray_4i_org11": [
+                0.418
+            ],
+            "isic": [
+                0.5,
+                0.5,
+                0.5
+            ],
+            "leprosy": [
+                0.1127,
+                0.098,
+                0.0891
+            ],
+            "help": "standard deviation for normalize dataset",
+            "silhouettes_gray_1": [
+                0.4412241280078888
+            ],
+            "leprosy_isic": [
+                0.20314334332942963,
+                0.19820505380630493,
+                0.21455100178718567
+            ],
+            "leprosy_only_regions": [
+                0.12088385224342346,
+                0.10184148699045181,
+                0.09281496703624725
+            ],
+            "silhouettes_gray_1i_org02": [
+                0.3828774094581604
+            ],
+            "silhouettes_gray_3i_org06": [
+                0.42470583319664
+            ],
+            "silhouettes_gray_3i_org07": [
+                0.38229089975357056
+            ],
+            "silhouettes_gray_3i_org08": [
+                0.38242387771606445
+            ],
+            "silhouettes_gray_4i_org10": [
+                0.41444122791290283
+            ]
+        },
+        "general_tags": {
+            "use": [
+                "isic",
+                "transfer-leaning",
+                "skinreader",
+                "resnet50",
+                "second_model",
+                "wh",
+                "weight",
+                "height",
+                "WideResNet",
+                "one_view",
+                "resnet101",
+                "leprosy",
+                "checkpoint",
+                "data fusion",
+                "multimodal fusion learning",
+                "Wide ResNet",
+                "one view",
+                "image organization study",
+                "three view",
+                "vertical organization"
+            ],
+            "help": "standard tags or tags already used. These tag will be used to gathering projects under the same subject."
+        },
+        "help": "Fields used for all the experiments."
+    },
+    "file_info": {
+        "version": {
+            "use": 5.0,
+            "required": true,
+            "about": "",
+            "help": "The config json file version. In case this file change in structure in the future."
+        },
+        "update": {
+            "use": true,
+            "default": false,
+            "help": "if true, the algorithm will try to update the fields whenever possible."
+        }
+    }
+}
