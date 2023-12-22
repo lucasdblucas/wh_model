@@ -13,15 +13,13 @@ import contextlib
 
 from beeprint import pp
 from experiments.experiment_interface import ExperimentInterface
-from experiments.wh_experiment_config import WH_oneout_ConfigExperiment, WH_twoout_ConfigExperiment, WH_multimodel_ConfigExperiment
+from experiments.wh_experiment_config import WH_twoout_ConfigExperiment
 from configs.config import Config
 from about_models.models_utils.model_utils import get_num_parameters
 from data.data_loader import silhouettes_loader, loader_repr
 from about_models import models
 from about_models.models_utils.train_utils_regression_2out import train_model as train_model_twoout
 from about_models.models_utils.train_utils_regression_2out import test_model as test_model_twoout
-from about_models.models_utils.train_utils_regression_1out import train_model as train_model_oneout
-from about_models.models_utils.train_utils_regression_1out import test_model as test_model_oneout
 
 from utils.utils_plots_regression import save_plot_prediction, save_plot_prediction_1out
 from utils.utils_json import saveorupdate_json

@@ -4,11 +4,7 @@ import tqdm
 
 from torch.utils.data import DataLoader, Sampler
 from torchvision import transforms
-from data.leprosy import Leprosy
 from data.silhouettes import Silhouettes
-from data.isic import Isic
-from data.leprosy_isic import LeprosyISIC
-from data.leprosy_fusion import LeprosyFusion
 from utils.utils_data import get_transform_compose
 
 def silhouettes_data_loader(root, batch_size=64, shuffle=True, num_workers=4):

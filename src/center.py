@@ -3,10 +3,7 @@ sys.path.insert(0, " ../../src")
 
 from argparse import ArgumentParser
 from configs.config import Config
-from utils.utils_images import display_images_from_dataloader
-from experiments.skinreader_experiment import SkinreaderExperiment
 from experiments.wh_experiment import WHPredExperiment
-
 def get_args():
     parser = ArgumentParser(
         prog='Center',
@@ -52,10 +49,6 @@ def wh_models(config):
             train_loader=train_loader,
             test_loader=test_loader
         )
-    
-    # # prediction
-    # elif data_config["split_data_type"]["use"] == data_config["split_data_type"]["choices"][3]:
-    #     _, _, _, infe_loader = wh_pred.define_data(config=config)
 
 if __name__ == "__main__":
     

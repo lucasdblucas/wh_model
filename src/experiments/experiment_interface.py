@@ -9,9 +9,5 @@ class ExperimentInterface(ABC):
         pass
     
     @abstractmethod
-    def define_model_and_infer(config: Config, infe_loader: DataLoader):
-        pass
-    
-    @abstractmethod
     def define_model_and_train(config: Config, infe_loader: DataLoader):
         pass
