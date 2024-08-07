@@ -15,6 +15,7 @@ This repository contains the algorithm developed for estimating human weight and
 - [📝 Configuration](#-configuration)
 - [🔍 Examples](#-examples)
 - [❓ Troubleshooting](#-troubleshooting)
+- [📰 Our Published Article](#-our-published-article)
 - [👥 Contributors](#-contributors)
 - [📜 License](#-license)
 - [📧 Contact](#-contact)
@@ -91,6 +92,11 @@ For common issues and troubleshooting steps, please open an issue on the project
 * Ariel Teles Soares
 
 ## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## 📰 Our Published Article
+
 - ### <a href="https://doi.org/10.1016/j.eswa.2024.124879"><img src="https://zenodo.org/badge/DOI/10.1016/j.eswa.2024.124879.svg" alt="DOI"></a> 
 
 ## 📧 Contact
