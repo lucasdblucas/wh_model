@@ -2,7 +2,8 @@
 
 This repository contains the algorithm developed for estimating human weight and height using multi-view images. The code supports training both Wide ResNet and Scale-Equivariant WideResnet models.
 
-![HEADER](https://github.com/lucasdblucas/wh_model/tree/master/readme_images/header-image.png)
+![HEADER](https://raw.githubusercontent.com/lucasdblucas/wh_model/master/readme_images/header-image.png)
+
 
 ## Table of Contents
 - [📖 Introduction](#-introduction)
