@@ -1,4 +1,4 @@
-# A Deep Learning-based Method for Estimating Human Weight and Height from Multi-view Clinic Images
+# A scale-equivariant CNN-based method for estimating human weight and height from multi-view clinic silhouette images
 
 This repository contains the algorithm developed for estimating human weight and height using multi-view images. The code supports training both Wide ResNet and Scale-Equivariant WideResnet models.
 
